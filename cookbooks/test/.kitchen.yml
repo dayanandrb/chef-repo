@@ -1,0 +1,37 @@
+---
+driver:
+  name: ec2
+  aws_ssh_key_id: Devops
+  region: us-west-2
+  availability_zone: us-west-2a
+  subnet_id: subnet-06804461
+  require_chef_omnibus: true
+  instance_type: t2.micro
+  tags:
+      Name: New_Year
+  image_id: ami-6f68cf0f
+  security_group_ids: ['sg-82f91ffa']
+  associate_public_ip: true
+  retryable_tries: 120
+  block_device_mappings:
+  - device_name: /dev/sda1
+    ebs:
+      volume_size: 20
+      delete_on_termination: true
+
+
+provisioner:
+  name: chef_solo
+
+transport:
+  ssh_key: C:\Users\brud0001\Desktop\chef\Devops.pem
+
+
+platforms:
+  - name: Linux 
+
+suites:
+  - name: default
+    run_list:
+      - recipe[jdk::default]
+    attributes:
