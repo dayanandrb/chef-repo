@@ -8,4 +8,7 @@ client_key               "#{current_dir}/brud0001.pem"
 chef_server_url          "https://api.chef.io/organizations/dayanand"
 cookbook_path            ["#{current_dir}/../cookbooks"]
 # knife[:ssh_user]="ec2-user"
-# knife[:aws_ssh_key_id]  = "#{current_dir}/my-key.pem"
+# knife[:aws_ssh_key_id]  = "#{current_dir}/my-key.pem"\\
+cookbooks_copyright "dayanand"
+cookbooks_license "node"
+cookbooks_email "dayanandsunrise@gmail.com"
